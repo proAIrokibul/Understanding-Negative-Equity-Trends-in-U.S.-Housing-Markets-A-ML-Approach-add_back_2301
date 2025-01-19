@@ -1,4 +1,4 @@
-# Understanding Negative Equity Trends in U.S. Housing Markets: A Machine Learning Approach to Predictive Analysis
+# Understanding Negative Equity Trends in U.S. Housing Markets A Machine Learning Approach to Predictive Analysis
 
 ## Project Overview
 
