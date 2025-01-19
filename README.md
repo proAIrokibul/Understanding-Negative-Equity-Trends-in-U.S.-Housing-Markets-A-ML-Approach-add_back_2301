@@ -1,120 +1,112 @@
-# Understanding Negative Equity Trends in U.S. Housing Markets
-## A Machine Learning Approach to Predictive Analysis
+# Understanding Negative Equity Trends in U.S. Housing Markets: A Machine Learning Approach to Predictive Analysis
 
-### **Project Description**
-This project, **"Understanding Negative Equity Trends in U.S. Housing Markets: A Machine Learning Approach to Predictive Analysis,"** aims to predict whether a housing region experiences negative equity by leveraging historical data and machine learning techniques. The project followed a comprehensive data pipeline from preprocessing to model evaluation and comparison, ensuring robust and actionable insights.
+## Project Overview
 
----
+This project aims to predict whether a housing region experiences negative equity using historical data and machine learning techniques. The goal is to provide insights that can help stakeholders, including policymakers, real estate professionals, and financial institutions, better understand and mitigate risks related to negative equity in the U.S. housing market.
 
-### **Process Overview**
+## Process Overview
 
-#### **1. Data Preprocessing**
-- **Handling Missing Values**:
-  - Categorical columns were imputed with the mode.
-  - Numerical columns were imputed with the median.
-- **Feature Engineering**:
-  - Created `equity_growth` to measure changes in equity values over time.
-  - Derived `equity_class` to categorize regions based on their equity trends.
-- **Scaling and Balancing**:
-  - Scaled the dataset using standard scaling techniques.
-  - Applied oversampling to address class imbalances and ensure fair representation of all target labels.
+### 1. Data Preprocessing
+- **Missing Value Handling**: The dataset had missing values in key columns like `StateName`, `City`, and `MSA`. These were handled using imputation techniques appropriate for categorical and numerical data.
+- **Feature Engineering**: 
+  - `equity_growth`: The percentage change in equity.
+  - `equity_class`: A binary classification target variable (1 for negative equity, 0 for otherwise).
+- **Outlier Detection**: Potential outliers were detected and managed to ensure model robustness.
+- **Scaling**: The features were scaled using standardization techniques to ensure compatibility across different machine learning models.
 
-#### **2. Modeling Techniques**
+### 2. Machine Learning Models
 Three machine learning algorithms were applied to predict the `equity_class` target variable:
 
-1. **Logistic Regression**: A linear model offering simplicity and interpretability.
-2. **Random Forest**: An ensemble learning approach that combines decision trees to improve accuracy and reduce overfitting.
-3. **XGBoost**: A high-performance gradient boosting algorithm that optimizes predictive performance, especially for imbalanced datasets.
+- **Logistic Regression**: A baseline linear model offering simplicity and interpretability.
+- **Random Forest**: An ensemble learning model that combines decision trees, improving predictive accuracy and reducing overfitting.
+- **XGBoost**: A gradient boosting technique optimized for performance, particularly effective for imbalanced datasets.
 
-#### **3. Model Evaluation**
-Each model was evaluated using metrics like **Accuracy**, **Precision**, **Recall**, **F1-Score**, and classification reports. Below are the results:
+### 3. Model Evaluation
+Each model was evaluated using a variety of performance metrics: **Accuracy**, **Precision**, **Recall**, **F1-Score**, and **Classification Report**. The following are the results for each model:
 
----
-
-### **Model Evaluation Results**
-
-#### **Logistic Regression**
-- **Classification Report**:
-  ```
-               precision    recall  f1-score   support
-
-           0       0.59      0.73      0.65      2058
-           1       0.56      0.45      0.50      1836
-           2       0.00      0.00      0.00       115
-
-    accuracy                           0.58      4009
-   macro avg       0.38      0.39      0.38      4009
-weighted avg       0.56      0.58      0.56      4009
-  ```
+#### Logistic Regression Model Evaluation
 - **Accuracy**: 57.72%
-- This model, while interpretable, struggled with handling class imbalances and complex feature interactions.
-
----
-
-#### **Random Forest**
 - **Classification Report**:
-  ```
-               precision    recall  f1-score   support
 
-           0       0.98      0.98      0.98      2058
-           1       0.95      0.98      0.96      1836
-           2       1.00      0.59      0.74       115
+     precision    recall    f1-score   support
 
-    accuracy                           0.97      4009
-   macro avg       0.98      0.85      0.90      4009
-weighted avg       0.97      0.97      0.97      4009
-  ```
+  0       0.59      0.73      0.65      2058
+  1       0.56      0.45      0.50      1836
+  2       0.00      0.00      0.00       115
+
+accuracy                      0.58      4009
+macro avg 0.38      0.39      0.38      4009 
+weighted avg 0.56   0.58      0.56      4009
+
+
+
+#### Random Forest Model Evaluation
 - **Accuracy**: 96.68%
-- This model demonstrated strong performance, though recall for the minority class (class `2`) was moderate.
-
----
-
-#### **XGBoost**
 - **Classification Report**:
-  ```
-               precision    recall  f1-score   support
 
-           0       0.99      0.99      0.99      2058
-           1       0.99      0.99      0.99      1836
-           2       0.95      0.97      0.96       115
+     precision    recall  f1-score   support
 
-    accuracy                           0.99      4009
-   macro avg       0.98      0.98      0.98      4009
-weighted avg       0.99      0.99      0.99      4009
-  ```
+  0      0.98      0.98      0.98      2058
+  1      0.95      0.98      0.96      1836
+  2      1.00      0.59      0.74       115
+
+accuracy                     0.97      4009
+macro avg 0.98      0.85     0.90      4009 
+weighted avg 0.97   0.97     0.97      4009
+
+
+#### XGBoost Model Evaluation
 - **Accuracy**: 99.08%
-- This model excelled, achieving near-perfect metrics across all classes, even with the imbalanced dataset.
+- **Classification Report**:
 
----
+     precision    recall  f1-score   support
 
-### **Model Comparison**
-| Model              | Accuracy | Macro Avg Precision | Macro Avg Recall |
-|--------------------|----------|---------------------|------------------|
-| Logistic Regression | 57.72%   | 38%                 | 39%              |
-| Random Forest       | 96.68%   | 98%                 | 85%              |
-| XGBoost             | 99.08%   | 98%                 | 98%              |
+  0       0.99      0.99      0.99      2058
+  1       0.99      0.99      0.99      1836
+  2       0.95      0.97      0.96       115
 
-- **Best Model**: The **XGBoost model** delivered the highest accuracy and balanced metrics, making it the optimal choice for this dataset.
+accuracy                      0.99      4009
+macro avg 0.98      0.98      0.98      4009 
+weighted avg 0.99   0.99      0.99      4009
 
----
 
-### **Business Impact**
-The results of this analysis offer significant value to stakeholders in the housing and financial sectors:
+## Model Comparison
 
-#### **1. Proactive Risk Management**
-- Financial institutions can identify regions at risk of negative equity, enabling better resource allocation and risk mitigation strategies.
-- Mortgage lenders can use these insights to design flexible loan products and minimize default risks.
+- **Logistic Regression**: While interpretable, the logistic regression model showed low performance, particularly with class `2` (the minority class). The accuracy was 57.72%, and the recall for the minority class was almost 0%.
+  
+- **Random Forest**: This model significantly improved performance, achieving an accuracy of 96.68%. However, recall for class `2` was still only 59%, which could be improved. It performed well overall, especially for balanced classes.
 
-#### **2. Policy and Planning**
-- Policymakers can prioritize regions in economic distress and implement targeted interventions, such as subsidies, tax relief, or restructuring programs.
+- **XGBoost**: XGBoost delivered the best results with 99.08% accuracy. The model was able to effectively handle the class imbalance, achieving high precision and recall for all classes. The recall for class `2` reached 97%, showcasing the strength of this model.
 
-#### **3. Real Estate Market Dynamics**
-- Real estate firms and investors can identify regions with favorable equity trends, optimizing pricing strategies and investment portfolios.
+## Business Impact
 
-#### **4. Economic Stability**
-- By accurately predicting negative equity trends, the model contributes to a more stable housing market, reducing risks of financial crises.
+This analysis provides valuable insights for stakeholders across various sectors in the housing market:
 
----
+### 1. **Proactive Risk Management**:
+   - Financial institutions can use the model to identify regions at risk of negative equity and adjust loan policies or create new financial products.
+   - Mortgage lenders can assess regions more likely to experience negative equity, helping them develop flexible repayment structures for affected homeowners.
 
-### **Conclusion**
-This project demonstrates the power of machine learning in solving real-world problems by delivering actionable insights with high predictive accuracy. The **XGBoost model**, with its superior performance, is the recommended approach for analyzing negative equity trends in the U.S. housing market. Its ability to handle data complexities ensures reliable predictions that drive impactful business decisions.
+### 2. **Policy and Planning**:
+   - Policymakers can prioritize areas for economic intervention and implement targeted measures like tax relief, subsidies, or restructuring programs to alleviate negative equity.
+
+### 3. **Real Estate Market Dynamics**:
+   - Real estate companies can optimize investment strategies by identifying regions with favorable or challenging equity trends, influencing their pricing and portfolio decisions.
+
+### 4. **Economic Stability**:
+   - By predicting negative equity, the model contributes to stabilizing the housing market and reducing the risk of a housing-related financial crisis, ensuring a more resilient economy.
+
+## Conclusion
+
+The machine learning models demonstrated varying degrees of accuracy, with **XGBoost** emerging as the most reliable and efficient model for predicting negative equity trends. Its high performance, especially in handling imbalanced classes, positions it as the best choice for forecasting negative equity in the U.S. housing market.
+
+By applying these predictive models, stakeholders in the housing and financial sectors can make data-driven decisions, reducing risks and optimizing their strategies for long-term stability and growth in the market.
+
+
+
+
+
+
+
+
+
+
