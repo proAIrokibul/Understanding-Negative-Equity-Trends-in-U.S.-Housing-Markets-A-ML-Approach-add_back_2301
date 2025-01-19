@@ -28,15 +28,15 @@ Each model was evaluated using a variety of performance metrics: **Accuracy**, *
 - **Accuracy**: 57.72%
 - **Classification Report**:
 
-     precision    recall    f1-score   support
+       precision    recall    f1-score   support
 
-  0       0.59      0.73      0.65      2058
-  1       0.56      0.45      0.50      1836
-  2       0.00      0.00      0.00       115
+      0       0.59      0.73      0.65      2058
+      1       0.56      0.45      0.50      1836
+      2       0.00      0.00      0.00       115
 
-accuracy                      0.58      4009
-macro avg 0.38      0.39      0.38      4009 
-weighted avg 0.56   0.58      0.56      4009
+      accuracy                      0.58      4009
+      macro avg 0.38      0.39      0.38      4009 
+      weighted avg 0.56   0.58      0.56      4009
 
 
 
@@ -44,30 +44,30 @@ weighted avg 0.56   0.58      0.56      4009
 - **Accuracy**: 96.68%
 - **Classification Report**:
 
-     precision    recall  f1-score   support
+       precision    recall  f1-score   support
 
-  0      0.98      0.98      0.98      2058
-  1      0.95      0.98      0.96      1836
-  2      1.00      0.59      0.74       115
+      0      0.98      0.98      0.98      2058
+      1      0.95      0.98      0.96      1836
+      2      1.00      0.59      0.74       115
 
-accuracy                     0.97      4009
-macro avg 0.98      0.85     0.90      4009 
-weighted avg 0.97   0.97     0.97      4009
+      accuracy                     0.97      4009
+      macro avg 0.98      0.85     0.90      4009 
+      weighted avg 0.97   0.97     0.97      4009
 
 
 #### XGBoost Model Evaluation
 - **Accuracy**: 99.08%
 - **Classification Report**:
 
-     precision    recall  f1-score   support
+       precision    recall  f1-score   support
 
-  0       0.99      0.99      0.99      2058
-  1       0.99      0.99      0.99      1836
-  2       0.95      0.97      0.96       115
+      0       0.99      0.99      0.99      2058
+      1       0.99      0.99      0.99      1836
+      2       0.95      0.97      0.96       115
 
-accuracy                      0.99      4009
-macro avg 0.98      0.98      0.98      4009 
-weighted avg 0.99   0.99      0.99      4009
+      accuracy                      0.99      4009
+      macro avg 0.98      0.98      0.98      4009 
+      weighted avg 0.99   0.99      0.99      4009
 
 
 ## Model Comparison
